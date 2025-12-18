@@ -1,0 +1,11 @@
+.env
+apis.json
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+venv/
+env/
+
+
