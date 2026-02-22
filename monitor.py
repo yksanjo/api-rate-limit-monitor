@@ -12,7 +12,10 @@ import requests
 from datetime import datetime
 from typing import Dict, Optional, List
 from dotenv import load_dotenv
-import schedule
+try:
+    import schedule
+except ImportError:
+    schedule = None
 
 try:
     from slack_sdk import WebClient
@@ -190,6 +193,8 @@ class RateLimitMonitor:
     
     def run(self, interval: int = 60):
         """Start monitoring loop"""
+        if schedule is None:
+            raise RuntimeError("schedule package is required for run loop")
         print(f"🚀 Starting API Rate Limit Monitor (checking every {interval}s)")
         print(f"📊 Monitoring {len(self.apis)} API(s)")
         
@@ -241,5 +246,4 @@ def main():
 if __name__ == '__main__':
     import asyncio
     main()
-
 
