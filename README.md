@@ -1,100 +1,84 @@
-# RateGuard 🛡️
+# api-rate-limit-monitor
 
-> **API Rate Limit Monitor** - Never get caught off guard by rate limit errors again. Monitor multiple APIs simultaneously and get real-time alerts via Slack or Discord when you're approaching your limits.
+## Detailed Description
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
-[![Status: Active](https://img.shields.io/badge/status-active-success.svg)](https://github.com/yksanjo/RateGuard)
-[![GitHub stars](https://img.shields.io/github/stars/yksanjo/RateGuard?style=social)](https://github.com/yksanjo/RateGuard)
+api-rate-limit-monitor is maintained as an industry-grade software project with production-ready engineering practices.  
+This repository includes documented setup, quality gates, operational guidance, and governance standards so contributors can safely build, test, and ship changes with confidence.
 
-**RateGuard** is a powerful monitoring tool that keeps track of your API rate limits across multiple services. Get proactive alerts before you hit your limits, preventing service disruptions and ensuring your applications run smoothly.
+## Problem Statement
 
-## Features
+Describe the user or business problem this project solves, the target users, and expected outcomes.
 
-- 🔔 Real-time rate limit monitoring
-- 📊 Track multiple APIs simultaneously
-- 💬 Slack and Discord notifications
-- ⚠️ Configurable warning thresholds
-- 📈 Rate limit usage history
-- 🔄 Auto-refresh monitoring
+## Solution Overview
 
-## Installation
+Summarize the architecture, core modules, and runtime behavior at a high level.
 
-```bash
-pip install -r requirements.txt
+## Key Features
+
+- Clear project scope and intended use.
+- Reproducible local development workflow.
+- Test coverage and CI quality gates.
+- Security and contribution policies.
+- Deployment-ready repository structure.
+
+## Repository Structure
+
+```text
+.
+|-- src/                  # Core implementation
+|-- tests/                # Automated test suites
+|-- docs/                 # Design notes and operational docs
+|-- .github/workflows/    # CI pipelines
+|-- README.md
+|-- LICENSE
+|-- CONTRIBUTING.md
+|-- SECURITY.md
+|-- CODE_OF_CONDUCT.md
 ```
 
-## Configuration
+## Getting Started
 
-Create a `.env` file:
+### Prerequisites
 
-```env
-# Slack Configuration
-SLACK_BOT_TOKEN=xoxb-your-token
-SLACK_CHANNEL_ID=C1234567890
+- Git
+- Project runtime/toolchain for this repo
 
-# Discord Configuration (alternative)
-DISCORD_BOT_TOKEN=your-discord-token
-DISCORD_CHANNEL_ID=123456789012345678
+### Local Setup
 
-# APIs to Monitor
-# Format: API_NAME:ENDPOINT:HEADER_KEY:HEADER_VALUE
-# Example: GITHUB:https://api.github.com/rate_limit:X-RateLimit-Remaining:Authorization:token YOUR_TOKEN
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt  # or: pip install -e .[dev]
+pytest
 ```
 
 ## Usage
 
-### Start Monitoring
+Document primary commands, API routes, CLI examples, or UI workflows here.
 
-```bash
-python monitor.py
-```
+## Quality Standards
 
-### Add API to Monitor
+- CI must pass before merge.
+- Changes require tests for critical behavior.
+- Security-sensitive changes should include risk notes.
+- Keep pull requests focused and reviewable.
 
-```bash
-python monitor.py --add-api github --endpoint https://api.github.com/rate_limit --header Authorization --header-value "token YOUR_TOKEN"
-```
+## Security
 
-### List Monitored APIs
+See `SECURITY.md` for responsible disclosure and handling guidelines.
 
-```bash
-python monitor.py --list
-```
+## Contributing
 
-### Remove API
+See `CONTRIBUTING.md` for branching, commit, and pull request expectations.
 
-```bash
-python monitor.py --remove-api github
-```
+## Roadmap
 
-## Supported APIs
+Track upcoming milestones, technical debt, and planned feature work.
 
-- GitHub API
-- Twitter API
-- Stripe API
-- OpenAI API
-- Custom REST APIs (with rate limit headers)
+## Support
 
-## Rate Limit Header Formats
-
-The monitor supports common rate limit header formats:
-- `X-RateLimit-Remaining` / `X-RateLimit-Limit`
-- `RateLimit-Remaining` / `RateLimit-Limit`
-- `X-Rate-Limit-Remaining` / `X-Rate-Limit-Limit`
-
-## Example Output
-
-```
-🚨 Rate Limit Alert!
-API: GitHub
-Remaining: 45 / 5000
-Usage: 99.1%
-Threshold: 95%
-```
+Open a GitHub issue for bugs, feature requests, or documentation gaps.
 
 ## License
 
-MIT License
-
-
+This project is released under the MIT License.
