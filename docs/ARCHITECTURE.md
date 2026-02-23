@@ -1,19 +1,17 @@
 # Architecture
 
-## Domain
+## Purpose
 
-API Security Monitoring
+api-rate-limit-monitor evaluates data pipeline and runtime signals to improve observability and governance.
 
-## Core Components
+## Components
 
-1. Input/API boundary with schema checks
-2. Core policy/risk evaluation engine
-3. Persistence or reporting adapter layer
-4. Alerting/logging and operator feedback path
-5. Testable deterministic domain functions
+- Signal intake layer
+- Assessment engine
+- Output formatter for downstream automation
 
-## Engineering Priorities
+## Runtime Flow
 
-- Deterministic decisions for compliance/security actions
-- Explicit error handling and safe defaults
-- Isolated core logic for unit-level validation
+1. Receive signal text/event.
+2. Compute deterministic risk score.
+3. Emit structured assessment result.
